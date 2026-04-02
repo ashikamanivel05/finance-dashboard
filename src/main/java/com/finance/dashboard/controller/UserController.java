@@ -4,8 +4,8 @@ import com.finance.dashboard.entity.User;
 import com.finance.dashboard.service.UserService;
 
 import jakarta.validation.Valid;
-
-import org.springframework.security.access.prepost.PreAuthorize;
+//
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +19,8 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
-    @PreAuthorize("hasRole('ADMIN')")
+//
+//    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public User createUser( @Valid @RequestBody User user) {
         return userService.createUser(user);
@@ -35,14 +35,14 @@ public class UserController {
     public User getUser(@PathVariable Long id) {
         return userService.getUserById(id);
     }
-
-    @PreAuthorize("hasRole('ADMIN')")
+//
+//    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
         return userService.updateUser(id, user);
     }
-
-    @PreAuthorize("hasRole('ADMIN')")
+//
+//    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);

@@ -3,6 +3,7 @@ package com.finance.dashboard.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -78,7 +79,7 @@ public class User {
 	private String password;
 
 	
-	@NotBlank
+	@NotNull
     @Enumerated(EnumType.STRING)
     private Role role;
 

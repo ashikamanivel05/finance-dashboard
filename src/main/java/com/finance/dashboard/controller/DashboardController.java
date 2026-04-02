@@ -2,8 +2,8 @@ package com.finance.dashboard.controller;
 
 import com.finance.dashboard.entity.FinancialRecord;
 import com.finance.dashboard.service.DashboardService;
-
-import org.springframework.security.access.prepost.PreAuthorize;
+//
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,8 +18,8 @@ public class DashboardController {
     public DashboardController(DashboardService dashboardService) {
         this.dashboardService = dashboardService;
     }
-
-    @PreAuthorize("hasAnyRole('ADMIN','ANALYST','VIEWER')")
+//
+//    @PreAuthorize("hasAnyRole('ADMIN','ANALYST','VIEWER')")
     @GetMapping("/total-income")
     public Double totalIncome() {
         return dashboardService.getTotalIncome();
