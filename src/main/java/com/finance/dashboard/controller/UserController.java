@@ -22,7 +22,7 @@ public class UserController {
         this.userService = userService;
     }
 
- 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public User createUser( @Valid @RequestBody User user) {
         return userService.createUser(user);
