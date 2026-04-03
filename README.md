@@ -51,10 +51,12 @@ This is a robust Spring Boot backend designed for a financial dashboard. It feat
 
 ## Authentication & Roles
 The system is pre-seeded with the following credentials for testing:
-Role          Email                    Password        Permissions
-Admin         admin@finance.comadmin   123             Full Access (CRUD Users & Records)
-Analyst       analyst@finance.com      analyst123      View Records + Access Dashboard Insights
-Viewer        viewer@finance.com       viewer123       Read-only access to records
+
+| Role    | Email              | Password   | Permissions |
+|---------|--------------------|------------|-------------|
+| Admin   | admin@finance.com  | admin123   | Full Access (CRUD Users & Records) |
+| Analyst | analyst@finance.com| analyst123 | View Records + Access Dashboard Insights |
+| Viewer  | viewer@finance.com | viewer123  | Read-only access to records |
 
  
 
@@ -111,7 +113,7 @@ Update `application.properties`:
 
 ## Design Decisions & Assumptions
 - Security: Implemented NoOpPasswordEncoder for simplicity during the assessment. In a production environment, BCryptPasswordEncoder would be used.
-- Persistence: Used Postgres for "Plug-and-Play" evaluation. The configuration can be switched to MySQL/H@ by simply changing the application.properties.
+- Persistence: Used Postgres for "Plug-and-Play" evaluation. The configuration can be switched to MySQL/H2 by simply changing the application.properties.
 - Data Processing: Dashboard calculations are performed using Java Streams for readability, but optimized Repository queries are used for filtering.
 - Error Handling: A GlobalExceptionHandler ensures that the API returns clean, structured JSON error messages instead of stack traces.
 
