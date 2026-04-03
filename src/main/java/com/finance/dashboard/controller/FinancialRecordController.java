@@ -4,7 +4,7 @@ import com.finance.dashboard.entity.FinancialRecord;
 import com.finance.dashboard.entity.RecordType;
 import com.finance.dashboard.service.FinancialRecordService;
 //
-//import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -20,7 +20,7 @@ public class FinancialRecordController {
         this.recordService = recordService;
     }
 //
-//    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public FinancialRecord create(@RequestBody FinancialRecord record) {
         return recordService.createRecord(record);
@@ -36,7 +36,7 @@ public class FinancialRecordController {
         return recordService.getRecordById(id);
     }
 //
-//    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public FinancialRecord update(@PathVariable Long id, @RequestBody FinancialRecord record) {
         return recordService.updateRecord(id, record);
@@ -50,7 +50,7 @@ public class FinancialRecordController {
 
     // Filtering
 //
-//    @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
+    @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     @GetMapping("/type/{type}")
 
     public List<FinancialRecord> byType(@PathVariable RecordType type) {

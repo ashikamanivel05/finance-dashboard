@@ -3,6 +3,7 @@ package com.finance.dashboard.entity;
  
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -76,7 +77,7 @@ public class FinancialRecord {
 		this.createdBy = createdBy;
 	}
 
-	@NotBlank
+	@NotNull
 	private Double amount;
 
 	@NotBlank
@@ -87,7 +88,7 @@ public class FinancialRecord {
 	@NotBlank
     private String category;
 
-	@NotBlank
+	@NotNull
     private LocalDate date;
 
     private String notes;
