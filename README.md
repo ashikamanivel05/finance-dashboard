@@ -64,7 +64,18 @@ Update `application.properties`:
 After running application:
     http://localhost:8080/swagger-ui/index.html
 
+## Authentication
 
+This API is secured using Spring Security (Basic Auth).
+
+Use the following credentials for testing:
+
+- Username: admin
+- Password: admin123
+
+You can authorize using:
+- Swagger UI (Authorize button)
+- Postman (Basic Auth)
 
 ---
 
