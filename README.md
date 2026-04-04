@@ -11,7 +11,7 @@ This is a robust Spring Boot backend designed for a financial dashboard. It feat
 - Role-based access control
 - Dashboard summary APIs
 - Filter records by date, category, type
-- PostgreSQL database integration
+- PostgreSQL database integration and H2 for testingAPI
 - Swagger API documentation
 - Input validation and exception handling
 
@@ -20,7 +20,7 @@ This is a robust Spring Boot backend designed for a financial dashboard. It feat
 ## Tech Stack
 - Framework: Spring Boot 3.x
 - Security: Spring Security (Method-level security with @PreAuthorize)
-- Database: H2 (In-Memory) / Spring Data JPA
+- Database: PostgreSQL(while development) , For testing H2 Database
 - Documentation: SpringDoc OpenAPI (Swagger)
 - Tooling: Lombok, Jakarta Validation
 
@@ -66,11 +66,11 @@ The system is pre-seeded with the following credentials for testing:
 - Click Authorize. All subsequent requests will now be authenticated with that role.
 
 ## 🗄 Database Configuration
-Update `application.properties`:
-   spring.datasource.url=jdbc:postgresql://localhost:5432/finance_db
-   spring.datasource.username=your_username
-   spring.datasource.password=your_password
-
+By default, the application is configured to use H2 (In-Memory) for a seamless review experience. No database setup is required to run the project.
+To switch to PostgreSQL, update src/main/resources/application.properties:
+  spring.datasource.url=jdbc:postgresql://localhost:54321/your_Database
+  spring.datasource.username=your_username
+  spring.datasource.password=your_password
 
 ---
 
@@ -113,7 +113,7 @@ Update `application.properties`:
 
 ## Design Decisions & Assumptions
 - Security: Implemented NoOpPasswordEncoder for simplicity during the assessment. In a production environment, BCryptPasswordEncoder would be used.
-- Persistence: Used Postgres for "Plug-and-Play" evaluation. The configuration can be switched to MySQL/H2 by simply changing the application.properties.
+- Persistence: Used H2 (In-Memory). The configuration can be switched to MySQL/H2/PostgreSQL by simply changing the application.properties.
 - Data Processing: Dashboard calculations are performed using Java Streams for readability, but optimized Repository queries are used for filtering.
 - Error Handling: A GlobalExceptionHandler ensures that the API returns clean, structured JSON error messages instead of stack traces.
 
