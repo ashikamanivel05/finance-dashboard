@@ -80,7 +80,7 @@ public class FinancialRecord {
 	@NotNull
 	private Double amount;
 
-	@NotBlank
+	@NotNull
     @Enumerated(EnumType.STRING)
     private RecordType type;
 

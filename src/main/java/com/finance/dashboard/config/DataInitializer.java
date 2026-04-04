@@ -35,6 +35,18 @@ public class DataInitializer {
                 userRepository.save(viewer);
             }
             
+            //create Analyst
+            
+            if (userRepository.findByEmail("analyst@finance.com").isEmpty()) {
+                User analyst = new User();
+                analyst.setName("Data Analyst");
+                analyst.setEmail("analyst@finance.com");
+                analyst.setPassword("analyst123");
+                analyst.setRole(Role.ANALYST);
+                analyst.setActive(true);
+                userRepository.save(analyst);
+            }
+            
             System.out.println("--- Demo Users Created: admin@finance.com / admin123 ---");
         };
     }
