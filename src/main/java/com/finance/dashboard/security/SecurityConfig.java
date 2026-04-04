@@ -24,9 +24,13 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
+            	.requestMatchers("/h2-console/**").permitAll() // Allow H2
                 .requestMatchers("/v3/api-docs/**", "/swagger-ui/**").permitAll() // Allow Swagger
                 .anyRequest().authenticated()
             )
+            .headers(headers -> headers
+                    .frameOptions(frame -> frame.sameOrigin()) // This allows H2 frames
+                )
             .httpBasic(Customizer.withDefaults());
 
         return http.build();
